@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Arlon_Portfolio</title>
+
+
+  <link href="./index_files/css2" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg1: #050505;        
+      --bg2: #121212;     
+      --accent: #ff1744;     
+      --accent-2: #00e5ff; 
+      --glass: rgba(255,255,255,0.06);
+      --muted: #c5c5c5;
+      --card: rgba(255,255,255,0.03);
+    }
+
+    * { box-sizing: border-box }
+    html, body { height: 100% }
+    body {
+      margin: 0;
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: radial-gradient(1000px 500px at 20% 10%, rgba(255,23,68,0.08), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color: #f3f3f3;
+      overflow-x: hidden;
+      line-height: 1.5;
+      padding-bottom: 40px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .stars {
+      position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image: radial-gradient(#ffffff10 1px, transparent 1px);
+      background-size: 3px 3px;
+      opacity: 0.05;
+      animation: drift 60s linear infinite;
+    }
+    @keyframes drift {
+      from { transform: translateY(0); }
+      to { transform: translateY(-200px); }
+    }
+
+    .container { position: relative; z-index: 2; max-width: 1100px; margin: 0 auto; padding: 36px 22px; }
+
+    header {
+      display: flex; align-items: center; justify-content: space-between; padding: 12px 0 28px;
+    }
+    .brand { display: flex; gap: 12px; align-items: center; }
+    .logo {
+      width: 60px; height: 60px; border-radius: 12px;
+      background: linear-gradient(135deg,var(--accent),var(--accent-2));
+      display: grid; place-items: center; font-weight: 700;
+      color: #050505; font-family: 'Orbitron', sans-serif;
+      box-shadow: 0 8px 25px rgba(134, 12, 37, 0.2), 0 4px 12px rgba(1, 230, 255, 0.2);
+      font-size: 22px;
+    }
+    nav a {
+      color: var(--muted); text-decoration: none; margin-left: 18px; font-weight: 600;
+    }
+    nav a:hover { color: var(--accent-2); }
+
+    .hero {
+      display: grid; grid-template-columns: 1fr 420px; gap: 36px; align-items: center; margin-top: 10px;
+    }
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      padding: 28px; border-radius: 18px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+      backdrop-filter: blur(6px);
+    }
+
+    .eyebrow { font-size: 13px; color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    h1 { font-size: 36px; margin: 10px 0 6px; font-weight: 700; }
+    p.lead { color: var(--muted); margin: 0 0 18px; }
+
+    .cta { display: flex; gap: 12px; }
+    .btn {
+      padding: 10px 16px; border-radius: 10px; border: 0;
+      font-weight: 700; cursor: pointer;
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      color: #050505; box-shadow: 0 6px 18px rgba(0,229,255,0.15);
+    }
+    .btn.ghost { background: transparent; border: 1px solid rgba(255,255,255,0.06); color: var(--muted); }
+
+    .profile {
+      border-radius: 16px; padding: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      min-height: 340px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 12px;
+      position: relative; overflow: hidden;
+    }
+ .profile .avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 18px;
+  background: url('mandil.jpg') center/cover; 
+  border: 3px solid rgba(14, 14, 14, 0.05);
+}
+
+    .profile h3 { margin: 6px 0 0; font-family: 'Orbitron'; letter-spacing: 1px; }
+    .profile .role { color: var(--accent-2); font-size: 14px; text-transform: uppercase; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .tag { padding: 6px 10px; background: var(--card); border-radius: 999px; font-size: 13px; color: var(--muted); }
+
+    section { margin-top: 28px; }
+    .section-title { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+    .section-title h2 { margin: 0; font-size: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+
+    .project {
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      padding: 14px; border-radius: 12px; min-height: 160px;
+      display: flex; flex-direction: column; gap: 8px;
+      transition: transform .28s ease;
+    }
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(255,23,68,0.2);
+    }
+    .project h3 { margin: 0; color: var(--accent); }
+    .project p { color: var(--muted); font-size: 14px; margin: 0; }
+    .pill {
+      padding: 8px 12px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.06);
+      font-weight: 600; font-size: 13px; color: var(--accent-2);
+    }
+
+    .skills { display: flex; gap: 8px; flex-wrap: wrap; }
+    .skill {
+      background: var(--glass); padding: 8px 12px; border-radius: 8px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 36px; padding: 18px;
+      border-top: 1px solid rgba(255,255,255,0.03);
+      color: var(--muted); text-align: center;
+    }
+
+    @media (max-width:980px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width:640px) {
+      .grid-3 { grid-template-columns: 1fr; }
+      nav a { display: none; }
+      .logo { width: 48px; height: 48px; font-size: 18px; }
+      h1 { font-size: 28px; }
+    }
+
+    .neon {
+      text-shadow: 0 6px 24px rgba(255,23,68,0.2),
+                   0 0 12px rgba(0,229,255,0.15);
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      font-weight: 800;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .contact-form input, .contact-form textarea {
+      padding: 12px; border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.06);
+      background: transparent; color: inherit; font-size: 14px;
+    }
+    .contact-form textarea { grid-column: 1/-1; min-height: 120px; }
+  </style>
+</head>
+<body>
+  <div class="stars" aria-hidden="true"></div>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">٨𝓇ก</div>
+        <div>
+          <div style="font-weight:700;font-family:&#39;Orbitron&#39;">Arlon</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Lead Guitarist • Beginner Web Developer</div>
+        </div>
+      </div>
+      <nav>
+        <a href="file:///D:/protfolio/index.html#about">About</a>
+        <a href="file:///D:/protfolio/index.html#work">Music</a>
+        <a href="file:///D:/protfolio/index.html#skills">Skills</a>
+        <a href="file:///D:/protfolio/index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Strings &amp; Code</div>
+          <h1 class="neon">I blend rhythm, emotion &amp; design</h1>
+          <p class="lead"> Hey, I’m Mandil — a lead guitarist and aspiring web designer.  
+  I create simple yet powerful websites while chasing the same energy I feel on stage — deep, electric, and alive.  
+  I perform with my band <strong>Astitwa</strong>, bringing music and passion to every performance.</p>
+          <div class="cta">
+            <a class="btn" href="file:///D:/protfolio/index.html#work">View My Work</a>
+            <a class="btn ghost" href="https://www.instagram.com/as.tit.wa/?__pwa=1#">Let’s Jam</a>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+            <div class="tag">HTML</div>
+            <div class="tag">CSS</div>
+            <div class="tag">Guitar</div>
+            <div class="tag">Music Design</div>
+          </div>
+        </div>
+
+        <aside class="profile">
+          <div class="avatar"></div>
+        <h3 style="font-family:'Orbitron', sans-serif; font-weight:900; letter-spacing:2px; color:#ff1744; text-transform:uppercase;">
+ Mandil Budhathoki(ARLON )
+</h3>
+          <div class="role">Lead Guitarist • HTML &amp; CSS Beginner</div>
+          <div class="tags">
+            <div class="tag">Open to Collaborate</div>
+            <div class="tag">Musician</div>
+            <div class="tag">Creative Soul</div>
+          </div>
+          <div style="margin-top:12px;display:flex;gap:10px">
+            <a class="pill" href="https://www.instagram.com/budhathokimandil/?__pwa=1#">Say Hello</a>
+            <a class="pill" href="file:///D:/protfolio/index.html#work">See Projects</a>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about">
+        <div class="section-title">
+          <h2>About</h2>
+          <div style="color:var(--muted);font-size:13px">My Story</div>
+        </div>
+        <div class="hero-card">
+          <p style="margin:0;color:var(--muted)">
+            I’m a guitarist who believes design and music share the same rhythm — both require harmony, timing, and passion.
+            I’m learning HTML and CSS to express my creativity on the web the same way I do through my guitar.
+          </p>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="section-title">
+          <h2>Music &amp; Projects</h2>
+          <div style="color:var(--muted);font-size:13px">Rhythm meets code</div>
+        </div>
+
+        <div class="grid-3">
+          <article class="project">
+            <h3>Neon Strings</h3>
+            <p>A music landing page concept inspired by guitar strings and city lights — created to showcase music videos &amp; sessions.</p>
+            <div class="links">
+              <a class="pill" href="file:///D:/protfolio/index.html#">Preview</a>
+              <a class="pill" href="file:///D:/protfolio/index.html#">Code</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <h3>Live Performance Clips</h3>
+            <p>Recorded guitar sessions showcasing different styles and techniques. Perfect for bands, collaborations</p>
+            <div class="links">
+              <a class="pill" href="live music .html">View</a>
+            </div>
+          </article>
+
+          <article class="project">
+            <h3>Stage Light UI</h3>
+            <p>The Stage Light Effect is a dynamic visual simulation of real stage lighting using HTML and CSS. This effect mimics the vibrant, moving lights often seen in concerts, theaters, and live performances.</p>
+            <div class="links">
+              <a class="pill" href="stage light effect .html">Try</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-title">
+          <h2>Skills</h2>
+          <div style="color:var(--muted);font-size:13px">Growing daily</div>
+        </div>
+        <div class="hero-card">
+          <div class="skills">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">Responsive Design</div>
+            <div class="skill">Lead guitarist</div>
+             <div class="skill">Digital Creator </div>
+            <div class="skill">Music Composition</div>
+            <div class="skill">Band Collaboration</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-title">
+          <h2>Let’s Create</h2>
+          <div style="color:var(--muted);font-size:13px">Let’s create something cool</div>
+        </div>
+        <div class="hero-card">
+          <form class="contact-form" onsubmit="alert(&#39;Demo form — connect backend later!&#39;);return false;">
+            <input type="text" placeholder="Your name" required="">
+            <input type="email" placeholder="Your email" required="">
+            <input type="text" placeholder="Subject">
+            <textarea placeholder="Message"></textarea>
+            <button class="btn" style="grid-column:1/-1;padding:12px;border-radius:10px;border:0">Shoot a message</button>
+          </form>
+
+          <div style="margin-top:14px;color:var(--muted);font-size:13px">
+            Or email me at <a href="mailto:itsmearyan839@example.com" style="color:var(--accent)">itsmearyan839@gmail.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year">2025</span> Mandil Built with HTML &amp; CSS
+    </footer>
+  </div>
+
+</body></html>

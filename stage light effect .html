@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage Light Effect</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background-color: #111;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stage {
+    position: relative;
+    width: 90%;
+    height: 70%;
+    background-color: #030303;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .spotlight {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    top: -20%;
+    mix-blend-mode: screen; 
+    opacity: 0.8;
+    animation: moveLight 5s infinite alternate ease-in-out;
+  }
+
+  .red { background: radial-gradient(circle, rgba(255,0,0,0.7) 0%, rgba(255,0,0,0) 70%); left: 10%; }
+  .cyan { background: radial-gradient(circle, rgba(0,255,255,0.7) 0%, rgba(0,255,255,0) 70%); left: 30%; animation-delay: 1s; }
+  .blue { background: radial-gradient(circle, rgba(0,0,255,0.7) 0%, rgba(0,0,255,0) 70%); left: 50%; animation-delay: 2s; }
+  .white { background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 70%); left: 70%; animation-delay: 3s; }
+  .golden { background: radial-gradient(circle, rgba(255,215,0,0.7) 0%, rgba(255,215,0,0) 70%); left: 90%; animation-delay: 4s; }
+
+  @keyframes moveLight {
+    0% { top: -30%; transform: rotate(0deg) scale(1); }
+    25% { top: 20%; transform: rotate(15deg) scale(1.1); }
+    50% { top: 50%; transform: rotate(-15deg) scale(1); }
+    75% { top: 20%; transform: rotate(10deg) scale(1.05); }
+    100% { top: -30%; transform: rotate(0deg) scale(1); }
+  }
+
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="spotlight red"></div>
+    <div class="spotlight cyan"></div>
+    <div class="spotlight blue"></div>
+    <div class="spotlight white"></div>
+    <div class="spotlight golden"></div>
+  </div>
+</body>
+</html>

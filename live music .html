@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Music Showcase</title>
+<style>
+ 
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
+    color: #fff;
+  }
+
+  header {
+    text-align: center;
+    padding: 50px 20px 20px;
+    background: linear-gradient(90deg, #ff0000, #00ffff, #ffd700);
+    color: #fff;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px #000;
+  }
+
+  header p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+
+  .content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .video-box, .photo-box {
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .video-box:hover, .photo-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(255,255,255,0.5);
+  }
+
+  video {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+
+  .photo-box img {
+    width: 100%;
+    display: block;
+    border-radius: 10px;
+  }
+
+  .caption {
+    padding: 15px;
+    text-align: center;
+    font-size: 1rem;
+    color: #ffd700;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #111;
+    color: #aaa;
+    border-top: 1px solid #333;
+  }
+
+  h1.glow {
+    color: #fff;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #00ffff, 0 0 30px #ffd700;
+  }
+
+</style>
+</head>
+<body>
+
+  <header>
+    <h1 class="glow">Live Music Showcase</h1>
+    <p>Experience the energy of my live performance</p>
+  </header>
+
+  <div class="content">
+ 
+    <div class="video-box">
+      <video controls>
+        <source src="first performance with band.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="caption">Live Performance 1</div>
+    </div>
+
+
+    <div class="video-box">
+      <video controls>
+        <source src="Screen Recording 2025-11-01 204650.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="caption">Live Performance 2</div>
+    </div>
+
+   
+    <div class="photo-box">
+      <img src="drumer.jpg" alt="Live Music Photo">
+      <div class="caption">Hands on the Drums, Heart in the Music</div>
+    </div>
+  </div>
+  <div class="photo-box">
+      <img src="we 3 band.jpg" alt="Live Music Photo">
+      <div class="caption">Lost in the rhythm, living the moment 🎶✨</div>
+    </div>
+  </div>
+
+
+  <footer>
+    &copy; 2025 Mandil | All Rights Reserved
+  </footer>
+
+</body>
+</html>
